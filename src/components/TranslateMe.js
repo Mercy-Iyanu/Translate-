@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Navbar, Container, Button } from 'react-bootstrap';
-import headerPics from './pics.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe, faFlagUsa, faEarthEurope } from '@fortawesome/free-solid-svg-icons';
+import headerPics from '../images/pics.jpg';
 
 export default function TranslateMe() {
     const [translatedText, setTranslatedText] = useState('');
@@ -34,23 +36,53 @@ export default function TranslateMe() {
                     <Navbar.Brand href="#">Sabre</Navbar.Brand>
                     <ul className="navbar-nav">
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Select a language</a>
+                            <a className="nav-link dropdown-toggle" href="google.com" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <FontAwesomeIcon icon={faGlobe} /> Select a language
+                            </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a className="dropdown-item" href="#" onClick={translateText}>French</a></li>
+                            <li>
+                                    <button className="dropdown-item" onClick={() => translateText('en')} style={{ background: 'none', border: 'none', paddingLeft: 10, cursor: 'pointer' }}>
+                                        <FontAwesomeIcon icon={faFlagUsa} /> English
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="dropdown-item" onClick={() => translateText('fr')} style={{ background: 'none', border: 'none', paddingLeft: 10, cursor: 'pointer' }}>
+                                        <FontAwesomeIcon icon={faEarthEurope} /> French
+                                    </button>
+                                </li>
                             </ul>
                         </li>
                     </ul>
                 </Container>
             </Navbar>
 
-        <Container style = {{headerPics: `url(${headerPics})`}} className='mt-3'>
-          <h1>We partner with airlines, hoteliers, agencies and other travel partners to retail, distribute and fulfill travel.</h1>
-          <p>{translatedText}</p>
-          <p>
-            <Button variant="primary">Learn more</Button>
-          </p>
-        </Container>
-            
+            <Container 
+                style={{
+                    backgroundImage: `url(${headerPics})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    height: '100vh',
+                    color: 'white',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    textAlign: 'left',
+                    padding: '20px',
+                }}
+                className='mt-3'
+            >
+                <h1
+                    style={{
+                        fontSize: '5em'
+                    }}
+                >
+                    We partner with airlines, hoteliers, agencies and other travel partners to retail, distribute and fulfill travel.</h1>
+                <p>{translatedText}</p>
+                <p>
+                    <Button variant="primary">Learn more</Button>
+                </p>
+            </Container>
         </div>
-    )
+    );
 }
