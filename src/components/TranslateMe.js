@@ -61,20 +61,16 @@ export default function TranslateMe() {
                     backgroundImage: `url(${headerPics})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
-                    height: '100vh',
                     color: 'white',
-                    display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'center',
                     alignItems: 'center',
                     textAlign: 'left',
-                    padding: '20px',
                 }}
                 className='mt-3'
             >
                 <h1
                     style={{
-                        fontSize: '5em'
+                        fontSize: '4em'
                     }}
                 >
                     We partner with airlines, hoteliers, agencies and other travel partners to retail, distribute and fulfill travel.</h1>
